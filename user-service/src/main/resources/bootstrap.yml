@@ -1,0 +1,15 @@
+# nacos配置文件中心，bootstrap文件优先级比application高，会优先加载，导入nacos配置中心相关文件后再与application文件整合，然后才创建spring容器加载bean
+# name+active+file-extension为nacos配置中心的配置文件名
+spring:
+  application:
+    name: userservice # 服务名称
+  profiles:
+    active: dev # 环境
+  cloud:
+    nacos:
+#      server-addr: localhost:80 # nacos地址
+#      server-addr: localhost:8848
+      server-addr: nacos:8848
+      config:
+        namespace: 743c953d-a699-45ab-a680-79159fe87ad0
+        file-extension: yaml # 文件后缀名
